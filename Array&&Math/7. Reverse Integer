@@ -1,0 +1,43 @@
+int Digit(int x){
+    int num = 1;
+    while(x>=10){
+        num++;
+        x = x/10;
+    }
+    return num;
+}    
+long long pow10 (int num){
+    if(num==0)
+        return 1;
+    int count = 1;
+    for (int i =1;i<=num;i++)
+        count = count*10;
+    return count;
+}
+int reverse(int x){
+    long long k = x;
+    if(x<=INT_MIN)
+        return 0;
+    if (x<0)
+        x= -x;
+    if(x>INT_MAX)
+        return 0;
+    int b = Digit(x);
+    int a[b];
+    for (int i =b-1;i>=0;i--){
+        a[i] =x%10;
+        x =x/10;
+    }
+     long long newnum=0;
+    for(int i =0;i<b;i++){
+        if(a[i]*pow10(i)>INT_MAX)
+            return 0;
+        newnum =newnum+a[i]*pow10(i);
+          if(newnum> INT_MAX)
+            return 0;
+    }
+    if(k<0)
+        return -newnum;
+    else 
+        return newnum;
+}
