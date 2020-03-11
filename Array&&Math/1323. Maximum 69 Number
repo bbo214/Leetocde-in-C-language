@@ -1,0 +1,46 @@
+int Digit(int num){
+    int count = 1;
+    if (num<10)
+        return 1;
+    while(num>10){
+        num = num/10;
+        count++;
+        }
+    return  count;
+}
+int pow10 (int num){
+    if(num==0)
+        return 1;
+    int count = 1;
+    for (int i =1;i<=num;i++)
+        count = count*10;
+    return count;
+}
+
+int maximum69Number (int num){
+    int b = Digit(num);
+    int a[b];
+    for (int i =b-1;i>=0;i--){
+        a[i] = num%10;
+        num =num/10;
+    }
+    for (int i =0;i<b;i++){
+        if (a[i]!=9){
+            a[i] = 9;
+            break;
+        }
+    }
+    int newnum=0;
+    for(int i =0;i<b;i++)
+        newnum =newnum+a[i]*pow10(b-1-i);
+    return newnum;
+}
+
+
+
+
+
+
+
+
+
