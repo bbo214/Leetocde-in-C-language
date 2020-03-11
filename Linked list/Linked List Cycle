@@ -1,0 +1,21 @@
+bool hasCycle(struct ListNode *head) {
+    struct ListNode* slow = head;
+    struct ListNode* fast = head;
+    while(fast){
+        if(fast->next==NULL)
+            return false;
+        fast = fast->next->next;
+        slow = slow->next;
+        if(fast == slow)
+            return true;             
+    }
+    return false;    
+}
+
+
+
+
+
+
+
+請參考https://www.youtube.com/watch?v=bxCb37nLXWM&list=PLLuMmzMTgVK6a-2aAwPieEIIuIJY6JTSq&index=11
