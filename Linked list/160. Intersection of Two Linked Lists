@@ -1,0 +1,45 @@
+int Length(struct ListNode* head){
+    int count = 0;
+    while(head!=NULL){
+        count++;
+        head = head->next;
+    }
+    return count;
+    
+    
+}
+struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *headB) {
+        if (headA==NULL||headB==NULL)
+            return NULL;
+        int sizeA =Length(headA);
+        int sizeB =Length(headB);
+        struct ListNode* currentA,*currentB;
+        currentA = headA;
+        currentB =headB;
+        int diff = sizeA-sizeB;
+        if(diff>0){
+            for (int i=1;i<=diff;i++)
+                currentA = currentA->next;   
+        }
+        else{
+            for (int i=diff;i<0;i++)
+                currentB = currentB->next;
+        }
+        while (currentA){
+            if(currentA==currentB)
+                return currentA;
+            currentA = currentA->next;
+            currentB = currentB->next;
+}
+    
+return NULL;
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
