@@ -1,0 +1,15 @@
+int Length(struct ListNode* head){
+    int count = 0;
+    while(head){
+        count++;
+        head = head->next;
+    }
+    return count;
+}
+
+struct ListNode* middleNode(struct ListNode* head){
+        int a = Length(head);
+        for(int  i = 1;i<=a/2;i++)
+            head =head->next;
+        return head;
+    }
