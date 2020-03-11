@@ -1,0 +1,32 @@
+struct ListNode* AddTail(struct ListNode*tail,int val){
+     struct ListNode*p;
+     p = (struct ListNode*)malloc(sizeof(struct ListNode));
+     p->next =NULL;
+     p->val =val;
+     tail->next =p;
+     return p;
+}
+
+
+struct ListNode* removeElements(struct ListNode* head, int val){
+    if(head==NULL)
+        return NULL;
+    struct ListNode*c ,*ctail;
+    c =(struct ListNode*)malloc(sizeof(struct ListNode));
+    ctail=c;
+     while(head->val==val){
+            head =head->next;
+            if (head == NULL)
+                return NULL;
+        }
+    while(head){
+        if(head->val!=val){
+        ctail= AddTail(ctail,head->val);
+        head = head->next;
+        }
+        else{
+              head =head->next;
+        }
+    }
+    return c->next;
+}
