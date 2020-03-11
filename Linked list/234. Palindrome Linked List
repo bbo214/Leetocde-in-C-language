@@ -1,0 +1,35 @@
+int Length(struct ListNode* head){
+    int length = 0;
+    while(head){
+        head = head->next;
+        length++;
+}
+    return length;
+}
+
+bool isPalindrome(struct ListNode* head){
+    if(head==NULL||head->next==NULL)
+        return 1;
+    int len = Length(head);
+    int a[len];
+    for (int i = 0;i<len;i++){
+        a[i] =head->val;
+        head =head->next;
+    }
+    if(len%2==0){
+   for(int i=0;i<len/2;i++){
+       if(a[i]!=a[len-1-i])
+           return 0;
+   }
+        return 1;
+    }
+    else{
+        for(int i =0;i<len/2;i++){
+             if(a[i]!=a[len-1-i])
+           return 0;
+             }
+        return 1;
+    }
+       
+}
+
