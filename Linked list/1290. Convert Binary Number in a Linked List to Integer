@@ -1,0 +1,30 @@
+int Length(struct ListNode*head){
+    int count= 0;
+    while(head){
+        count++;
+        head =head->next;
+}
+    return count;
+}
+int pow2(int t ){
+    int count=1;
+    if (t==0)
+        return 1;
+    for (int i =1;i<=t;i++)
+        count =count*2;  
+    return count;   
+}
+
+int getDecimalValue(struct ListNode* head){
+    int count = 0;
+    int a  =Length(head);
+    a= a-1;
+    while(head){
+        count = count+head->val*pow2(a);
+        head= head->next;
+        a--;
+        
+    }
+    return count ;
+}
+
