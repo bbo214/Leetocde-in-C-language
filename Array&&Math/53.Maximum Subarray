@@ -1,14 +1,22 @@
 
+int max(int a,int b){
+    if (a>=b)
+        return a;
+    else 
+        return b;
+}
+    
+
 int maxSubArray(int* nums, int numsSize){
     int p=0;
-    int max=nums[0];
+    int maxnum=nums[0];
+    int current = 0;
     for (int i =0;i<numsSize;i++){
-        p = p+nums[i];
-        if(max<p)
-            max = p;
-        if(p<0)
-            p=0;
+        current = current+nums[i];
+        if(current<nums[i])
+            current = nums[i];
+        maxnum = max(maxnum,current);
     }
-    return max;
+    return maxnum;
 }
 
